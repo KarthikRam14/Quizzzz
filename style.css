@@ -109,6 +109,10 @@ input[type="text"]{
     box-shadow: 4px 4px 3px black ;
 }
 
+input[type="text"]:focus {
+    outline: none;
+}
+
 .namepageback{
     position: absolute;
     bottom: 8vh;
@@ -341,6 +345,22 @@ input[type="text"]{
     box-shadow: -7px 7px 5px black;
 }
 
+.knowMore,
+.getStarted,
+.getstartedbackbtn,
+.proff,
+.technical,
+.knowmorepagebackbtn,
+.submitName,
+.namepagebackbtn,
+.submitAnswer,
+.Quit,
+.nextQuestion,
+.scorepagebackbtn:hover {
+    cursor: pointer;
+}
+
+
 @media screen and (max-width: 1245px) {
 
     .head img{
@@ -465,7 +485,7 @@ input[type="text"]{
         width: 50vh;
         height: 8vh;
         font-size: 2.5vh;
-    }
+    }    
 
     .submitName{
         font-size: 3.3vh;

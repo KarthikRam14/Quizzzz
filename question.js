@@ -1,31 +1,37 @@
+//This method is easier. Using for loop I'm dynamically changing the questions and options one by one and checking if the selected answer matches the correct answer and alerting if choosen ans is wrong and increasing the score one by one.
+
 let currentQuestionIndex = 0
 let score = 0
 const questions = [
   {
-    question: "What is the capital of France?",
-    options: ["Paris", "Berlin", "Madrid", "Rome"],
-    correctAnswer: "Paris",
+    question: "Which planet is known as the 'Red Planet'?",
+    options: ["Venus", "Mars", "Jupiter", "Saturn"],
+    correctAnswer: "Mars",
   },
   {
-    question: "What is the largest mammal?",
-    options: ["Elephant", "Blue Whale", "Giraffe", "Lion"],
-    correctAnswer: "Blue Whale",
-  }
+    question: "Who is considered the 'father of the computer'?",
+    options: ["Steve Jobs", "Bill Gates", "Charles Babbage", "Tim Berners-Lee"],
+    correctAnswer: "Charles Babbage",
+  },
+  {
+    question: "What is the significance of the term 'bit' in computing?",
+    options: ["Binary Interval Technology", "Basic Information Tag", "Binary Unit of Data", "Byte Integration Technique"],
+    correctAnswer: "Binary Unit of Data",
+  },
 ]
 
 function displayQuestion() {
   const currentQuestion = questions[currentQuestionIndex];
   document.getElementById("quest").innerText = currentQuestion.question;
   for (let i = 1; i <= 4; i++) {
-    document.getElementById(`label${i}`).innerText =
-      currentQuestion.options[i - 1];
+    document.getElementById(`label${i}`).innerText = currentQuestion.options[i - 1];
   }
 }
 
 function checkAnswer() {
   const selectedOption = document.querySelector('input[name="option"]:checked');
   if (selectedOption) {
-    const userAnswer = selectedOption.nextElementSibling.innerText;
+    const userAnswer = selectedOption.nextElementSibling.innerText; //here I am using nextelementSibling is because i want to select the input and append the option to the next sibling element that is label element and in this line the user's choice is noted down
     const correctAnswer = questions[currentQuestionIndex].correctAnswer;
 
     if (userAnswer === correctAnswer) {
@@ -46,10 +52,21 @@ function checkAnswer() {
   }
 }
 
-document.querySelector(".submitAnswer").onclick = checkAnswer;
-document.getElementById("nextButton").onclick = displayQuestion;
+document.querySelector(".submitAnswer").onclick = () => {
+  checkAnswer()
+  localStorage.setItem("scrr", score)
+  location.href = './score.html';
+}
+document.getElementById("nextButton").onclick = checkAnswer;
+document.querySelector(".Quit").onclick = () => {
+  location.href = './getstarted.html'
+} 
 
 displayQuestion();
+
+
+// In this method I'm trying to append the Questions and options to the input tag and making it displayed but this doesnt seem to work so I instead an alternate and simple method.
+
 
 // let Questions = [
 //     {

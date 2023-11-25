@@ -1,31 +1,35 @@
 let currentQuestionIndex = 0
 let score = 0
 const questions = [
-    {
-        question: "In which year did the Berlin Wall fall, symbolizing the end of the Cold War?",
-        options: ["1985", "1989", "1991", "1995"],
-        correctAnswer: "1989",
-    },
-    {
-        question: "Who won the Nobel Prize in Physics in 1921 for their work on the photoelectric effect?",
-        options: ["Albert Einstein", "Niels Bohr", "Marie Curie", "Max Planck"],
-        correctAnswer: "Albert Einstein",
-    },
+  {
+    question: "What is the capital of France?",
+    options: ["Paris", "Berlin", "Madrid", "Rome"],
+    correctAnswer: "Paris",
+  },
+  {
+    question: "What is the largest mammal?",
+    options: ["Elephant", "Blue Whale", "Giraffe", "Lion"],
+    correctAnswer: "Blue Whale",
+  },
+  {
+    question: "Who wrote the play 'Romeo and Juliet'?",
+    options: ["William Wordsworth", "Charles Dickens", "William Shakespeare", "None"],
+    correctAnswer: "William Shakespeare",
+  }
 ]
 
 function displayQuestion() {
   const currentQuestion = questions[currentQuestionIndex];
   document.getElementById("quest").innerText = currentQuestion.question;
   for (let i = 1; i <= 4; i++) {
-    document.getElementById(`label${i}`).innerText =
-      currentQuestion.options[i - 1];
+    document.getElementById(`label${i}`).innerText = currentQuestion.options[i - 1];
   }
 }
 
 function checkAnswer() {
   const selectedOption = document.querySelector('input[name="option"]:checked');
   if (selectedOption) {
-    const userAnswer = selectedOption.nextElementSibling.innerText;
+    const userAnswer = selectedOption.nextElementSibling.innerText; 
     const correctAnswer = questions[currentQuestionIndex].correctAnswer;
 
     if (userAnswer === correctAnswer) {
@@ -46,10 +50,18 @@ function checkAnswer() {
   }
 }
 
-document.querySelector(".submitAnswer").onclick = checkAnswer;
-document.getElementById("nextButton").onclick = displayQuestion;
+document.querySelector(".submitAnswer").onclick = () => {
+  checkAnswer()
+  localStorage.setItem("scrr", score)
+  location.href = './score.html';
+}
+document.getElementById("nextButton").onclick = checkAnswer;
+document.querySelector(".Quit").onclick = () => {
+  location.href = './getstarted.html'
+} 
 
 displayQuestion();
+
 
 var time = 40;
 var timerId;
