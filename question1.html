@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qustion palette</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="questionpallete">
+        <div class="question" id="quest"></div>
+        <div class="options">
+            <div class="o"><input type="radio" name="option" id="option1" >
+                <label id="label1" for="option1"></label></div> 
+            <div class="o"><input type="radio" name="option" id="option2">
+                <label id="label2" for="option1"></label></div>
+            <div class="o"><input type="radio" name="option" id="option3">
+                <label id="label3" for="option1"></label></div>
+            <div class="o"><input type="radio" name="option" id="option4">
+                <label id="label4" for="option1"></label></div>
+        </div>
+    </div>
+    <div class="time">
+        <div class="timer">Timer<div id="timer" class="seconds"></div></div>
+    </div>
+    <div class="subans">
+        <button class="submitAnswer">Submit</button>
+    </div>
+    <div class="btns">
+        <button class="Quit">Quit</button>
+        <button class="nextQuestion" id="nextButton">Next Question</button>
+    </div>
+
+    <script>
+        document.querySelector('.Quit').onclick = () => {
+            location.href = './score.html'
+        }
+    </script>
+    <script src="./question1.js"></script>
+</body>
+</html>

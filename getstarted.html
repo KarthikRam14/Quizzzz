@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get started</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <button id="getstartbackbtn" class="getstartedbackbtn">Back</button>
+        <p id="append"></p>
+        <p>Good to see you there.</p>
+    </div>
+    <div class="content">
+        <div class="prof">
+            <img class="images" src="./images/prof logo.png">
+            <p class="proff">General knowledge</p>
+        </div>
+        <div class="tech">
+            <img class="images" src="./images/tech logo.png">
+            <p class="technical">Science and Tech</p>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.technical').onclick = () => {
+            location.href = './question.html'
+        }
+        document.querySelector('.proff').onclick = () => {
+            location.href = './question1.html'
+        }
+    </script>
+    <script src="./getstarted.js"></script>
+    <script src="namepage.js"></script>
+    
+</body>
+</html>
